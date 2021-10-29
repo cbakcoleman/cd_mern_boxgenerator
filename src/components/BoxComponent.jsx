@@ -2,12 +2,23 @@ import React, {useState} from 'react';
 import BoxContainer from './BoxComponent.module.css'
 
 const BoxComponent = (props) => {
-    // FOR FORM INPUT
+    // FORM INPUT
     const [color, setColor] = useState("");
 
+    // BOX CREATION
+    const [box, setBox] = useState("");
+    const boxList = [];
+    
+
+    // FORM ONSUBMIT FUNCTION TO ADD NEW BOXES
     const createBox = (e) => {
         e.preventDefault();
 
+        // PUSH CREATED BOX INTO BOXLIST??
+        // boxList.push(newBox)
+        // const newBox = boxList[i];
+        // RESET INPUT FIELDS:
+        setColor("");
     }
 
     return(
@@ -16,7 +27,7 @@ const BoxComponent = (props) => {
             <form onSubmit={createBox}>
                 <div>
                     <label>Color: </label>
-                    <input type="text" onChange={ (e) => setColor(e.target.value)} value={color} /> <br/>
+                    <input type="text" onChange={colorInput} value={color} /> <br/>
                 </div>
 
                 <div>
@@ -24,8 +35,8 @@ const BoxComponent = (props) => {
                 </div>
             </form>
             <hr/>
-            <div class={{BoxContainer}} style={{backgroundcolor: setColor}}>
-
+            <div>
+                {boxList.map( () => <div id="box" ></div>)}
             </div>
         </div>
     )
