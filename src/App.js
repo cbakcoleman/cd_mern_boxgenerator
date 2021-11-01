@@ -1,11 +1,31 @@
 import './App.css';
+import {useState} from 'react';
 
-import BoxComponent from './components/BoxComponent';
+import BoxForm from './components/BoxForm';
+import BoxView from './components/BoxView';
 
 function App() {
+  // CREATE EMPTY LIST OF COLORS
+  const [boxList, setBoxList] = useState([])
+  
+  // TO CREATE NEW BOXLIST TO ADD NEWBOX & UPDATE WHAT IS IN STATE
+  const addBoxes = (newBox) => {
+    // COPIES BOXLIST IN STATE
+    const newBoxList = [...boxList];
+    // ADDS NEW BOX TO COPY 
+    newBoxList.push(newBox);
+    // UPDATE BOXLIST IN STATE WITH ADDITION
+    setBoxList(newBoxList);
+  }
+
   return (
     <div className="App">
-      <BoxComponent/>
+      <div>
+        <h4>Add a box color!</h4>
+      </div>
+      <BoxForm addBoxes={addBoxes}/>
+      <BoxView boxList={boxList}/>
+      
     </div>
   );
 }

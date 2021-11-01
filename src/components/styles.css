@@ -1,0 +1,8 @@
+
+#box{
+    display: inline-flex;
+    height: 100px;
+    width: 100px;
+    padding: 5px;
+    margin: 5px;
+}
