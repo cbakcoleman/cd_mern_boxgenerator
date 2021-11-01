@@ -16,6 +16,8 @@ function App() {
     newBoxList.push(newBox);
     // UPDATE BOXLIST IN STATE WITH ADDITION
     setBoxList(newBoxList);
+    // COMBINES ABOVE THREE LINES??
+    // setBoxList([...boxList, newBox])
   }
 
   return (
